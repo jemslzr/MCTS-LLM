@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPADE Sandbox</title>
+<link rel="stylesheet" href="spade.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">
+    <span class="brand-name">SPADE</span>
+    <span class="brand-sub">Sandbox</span>
+  </div>
+  <div class="topbar-center">
+    <span id="status-badge" class="status-badge status-idle">Idle — Select a conversation or run all</span>
+  </div>
+  <div class="topbar-controls">
+    <div class="control-group">
+      <label class="control-label">Algorithm</label>
+      <select class="select-algo" id="algo-sel">
+        <option value="mcts" selected>MCTS Multi-Turn Fuzzer</option>
+      </select>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-secondary" id="run-all-btn">Run All</button>
+      <button class="btn btn-secondary" id="pause-btn">Pause</button>
+      <button class="btn btn-danger" id="reset-btn">Reset All</button>
+    </div>
+  </div>
+</header>
+
+<main class="main-grid">
+  <!-- LEFT PANEL: Conversation list -->
+  <section class="panel panel-left" id="conv-list-panel">
+    <div class="panel-header">
+      <span class="panel-title">Conversations (seeds)</span>
+      <span class="panel-badge" id="conv-count">0</span>
+    </div>
+    <div class="panel-body" id="conv-list">
+      <p class="empty-hint">Loading seeds...</p>
+    </div>
+  </section>
+
+  <!-- MIDDLE PANEL: Selected conversation messages -->
+  <section class="panel panel-center">
+    <div class="sub-panel conversation-panel">
+      <div class="panel-header">
+        <span class="panel-title" id="selected-seed-title">Select a conversation</span>
+      </div>
+      <div class="panel-body" id="conv-log">
+        <p class="empty-hint">Click a conversation on the left to view messages.</p>
+      </div>
+    </div>
+
+    <div class="sub-panel memory-panel">
+      <div class="panel-header panel-header--memory">
+        <span class="panel-title">Agent Memory Buffer (Injection Context)</span>
+        <span class="panel-badge" id="mem-turn-badge">Turn 2</span>
+      </div>
+      <div class="panel-body" id="mem-log">
+        <p class="empty-hint">No injection context yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT PANEL: Tools + RAG -->
+  <section class="panel panel-right">
+    <div class="sub-panel tool-panel">
+      <div class="panel-header panel-header--tool">
+        <span class="panel-title">Tool Invocation Log</span>
+      </div>
+      <div id="tool-log-body" class="tool-log-body">
+        <div class="tool-row"><span class="tool-name">send_email()</span><span class="tool-badge badge-none">IDLE</span></div>
+      </div>
+    </div>
+    <div class="rag-panel">
+      <div class="panel-header panel-header--rag">
+        <span class="panel-title">RAG Context (Turn 1 Safe Baseline)</span>
+        <span class="rag-status-badge" id="rag-status">CLEAN</span>
+      </div>
+      <div id="rag-body" class="rag-body">
+        <div class="rag-val" id="rag-content">Awaiting selection.</div>
+      </div>
+    </div>
+    <!-- Metrics summary -->
+    <div class="kc-section">
+      <div class="kc-section-title">Live Metrics</div>
+      <div class="kc-row">
+        <div class="kc-dot dot-red"></div>
+        <div class="kc-label-col">
+          <div class="kc-name">Attack Success Rate</div>
+          <div class="kc-formula">Successful Hijacks</div>
+        </div>
+        <div class="kc-bar-bg"><div class="kc-bar bar-red" id="bar-asr" style="width:0%"></div></div>
+        <div class="kc-frac" id="val-asr">0%</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="spade.js"></script>
+</body>
+</html>
