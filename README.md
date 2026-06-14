@@ -59,7 +59,7 @@ python precompute.py   # regenerates results_cache.json
 ```
 This regenerates results_cache.json with authentic LLM responses for all 255 seeds.
 ## License
-This project is released for academic and research purposes under the MIT License.
+This project is released for academic and research purposes.
 
 ## Acknowledgments
 NotInject dataset by Hao Li & Xiaogeng Liu
