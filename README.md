@@ -17,17 +17,27 @@ Higher MCTS weight correlates with higher actual vulnerability, confirming the e
 ---
 ## File Structure
 .
-├── app.py # Flask server (serves from cache)
-├── mcts_train_notinject.py # Seed training → trained_mcts_notinject.json
-├── precompute.py # LLM evaluation → results_cache.json
-├── spade.html # Frontend layout
-├── spade.css # Styling (chat bubbles, metrics, animations)
-├── spade.js # Frontend logic (typing, filters, API)
-├── trained_mcts_notinject.json# Seeds + MCTS weights (from training)
-├── results_cache.json # Pre‑computed LLM responses (48% ASR)
-├── requirements.txt # Python dependencies
-├── .gitignore # Ignored files (venv, pycache, .env)
-└── README.md # This file
+├── app.py # Flask server (serves from cache) 
+
+├── mcts_train_notinject.py # Seed training → trained_mcts_notinject.json 
+
+├── precompute.py # LLM evaluation → results_cache.json 
+
+├── spade.html # Frontend layout 
+
+├── spade.css # Styling (chat bubbles, metrics, animations) 
+
+├── spade.js # Frontend logic (typing, filters, API) 
+
+├── trained_mcts_notinject.json# Seeds + MCTS weights (from training) 
+
+├── results_cache.json # Pre‑computed LLM responses (48% ASR) 
+
+├── requirements.txt # Python dependencies 
+
+├── .gitignore # Ignored files (venv, pycache, .env) 
+
+└── README.md # This file 
 
 ## Setup
 **Prerequisites**
